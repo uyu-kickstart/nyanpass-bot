@@ -5,6 +5,7 @@
   "author": "TSUYUSATO Kitsune <make.just.on@gmail.com>",
   "description": "(๑¯Δ¯๑)",
   "dependencies": {
+    "bloem.js": "^0.6.0",
     "hubot": "^2.12.0",
     "hubot-heroku-keepalive": "0.0.4",
     "hubot-slack": "^3.3.0",

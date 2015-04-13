@@ -7,6 +7,7 @@ const
 NYANPASS_URL = 'http://nyanpass.com/count';
 
 var
+util      = require('util'),
 useragent = require('random-useragent'),
 request   = require('superagent');
 
@@ -21,8 +22,8 @@ module.exports = function (robot) {
       .send({ck: 1})
       .set('User-Agent', useragent.getRandom())
       .end(function (err, res) {
-        if (err || !res.ok) return msg.send(err || 'なにかがおかしいのん');
-        msg.reply('にゃんぱすー(๑¯Δ¯๑)\n' + res.text + '\nhttps://raw.githubusercontent.com/MakeNowJust/nyanpass-cli/master/nyanpass.jpg');
+        if (err || !res.ok) return msg.send(util.inspect(err) || 'なにかがおかしいのん');
+        msg.send('@' + msg.message.user.name + ': にゃんぱすー(๑¯Δ¯๑)\n' + res.text + '\nhttps://raw.githubusercontent.com/MakeNowJust/nyanpass-cli/master/nyanpass.jpg');
       });
   });
 };

@@ -12,7 +12,7 @@ useragent = require('random-useragent'),
 request   = require('superagent');
 
 module.exports = function (robot) {
-  robot.hear(/^\s*(nyanpass|(にゃんぱす|ニャンパス)ー?)\s*$/i, function (msg) {
+  robot.hear(/(nyanpass|(にゃんぱす|ニャンパス)ー?)/i, function (msg) {
     var
     count = ~~(Math.random() * 1000) + 1;
 

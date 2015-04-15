@@ -60,6 +60,7 @@ function send() {
 
 function error() {
   return bloem.rescue(function errorIter(err) {
-    state.msg.send(err && util.inspect(err) || 'なにかがおかしいのん');
+    console.log(util.inspect(err));
+    state.msg.send('なにかがおかしいのん:\n' + err.message);
   });
 }

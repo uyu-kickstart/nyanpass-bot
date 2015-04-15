@@ -22,7 +22,10 @@ module.exports = function (robot) {
       .send({ck: 1})
       .set('User-Agent', useragent.getRandom())
       .end(function (err, res) {
-        if (err || !res.ok) return msg.send(err && util.inspect(err) || 'なにかがおかしいのん');
+        if (err || !res.ok) {
+          console.log(util.inspect(err);
+          return msg.send('なにかがおかしいのん:\n' + err.message);
+        }
         msg.send('@' + msg.message.user.name + ': にゃんぱすー(๑¯Δ¯๑)\n' + res.text + '\nhttps://raw.githubusercontent.com/MakeNowJust/nyanpass-cli/master/nyanpass.jpg');
       });
   });

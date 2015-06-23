@@ -8,8 +8,12 @@ NYANPASS_URL_BASE = 'http://nyanpass.com/',
 NYANPASS_URL_ADD = NYANPASS_URL_BASE + 'add.php',
 NYANPASS_URL_GET = NYANPASS_URL_BASE + 'get?',
 API = {
-  add: NYANPASS_URL_ADD,
-  get: NYANPASS_URL_GET,
+  add: function add() {
+    return NYANPASS_URL_ADD;
+  },
+  get: function get() {
+    return NYANPASS_URL_GET + '?' + Math.random();
+  },
 };
 
 
@@ -43,7 +47,7 @@ function setup() {
 
 function api(name) {
   return bloem.map(function apiIter(state, next) {
-    request.post(API[name])
+    request.post(API[name]())
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .send({nyan: 'pass'})
       .set('User-Agent', useragent.getRandom())
